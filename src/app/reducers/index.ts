@@ -8,8 +8,9 @@ import {
   MetaReducer,
   on
 } from '@ngrx/store';
-import { User } from '../model/user.model';
-import { AuthActions } from '../action-types';
+import { User } from '../auth/model/user.model';
+import { AuthActions } from '../auth/action-types';
+import { routerReducer } from '@ngrx/router-store';
 
 export const authFeatureKey = 'auth';
 
@@ -17,14 +18,23 @@ export interface AuthState {
   user: User
 }
 
+export interface AppState {
+
+}
+
+export const reducers: ActionReducerMap<AppState> = {
+  router: routerReducer
+};
+
+
+
 export const initialAuthState : AuthState = {
   user : undefined
 };
 
 export const authReducer = createReducer(
-  
-  initialAuthState, 
-  
+  initialAuthState,
+
   on(AuthActions.login, (state, action) => {
   return{
     user: action.user

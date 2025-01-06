@@ -3,7 +3,7 @@ import {select, Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {map} from 'rxjs/operators';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
-import { AuthState } from './auth/reducers';
+import { AuthState } from './reducers';
 import { isLoggedIn, isLoggedOut } from './auth/auth.selectors';
 import { login, logout } from './auth/auth.actions';
 
