@@ -54,7 +54,11 @@ const routes: Routes = [
         AuthModule.forRoot(),
         StoreModule.forRoot(reducers, {}),
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-        EffectsModule.forRoot([])
+        EffectsModule.forRoot([]),
+        StoreRouterConnectingModule.forRoot({
+          stateKey: 'router',
+          routerState: RouterState.Minimal
+        })
       ],
         
         providers: [provideHttpClient(withInterceptorsFromDi())] })
